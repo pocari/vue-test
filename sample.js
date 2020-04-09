@@ -100,3 +100,28 @@ var watchExampleVM = new Vue({
       }
     }
 })
+
+var classBinding1 = new Vue({
+  el: '#class-binding1',
+  data: {
+    isActive: true,
+    hasError: false,
+  },
+  computed: {
+    classObject: function () {
+      return {
+        active: this.isActive,
+        'text-danger': this.hasError,
+        'sample-hoge': true,
+      }
+    }
+  }
+})
+
+var ifTest = new Vue({
+  el: '#if-test',
+  data: {
+    condition: false,
+    isShow: false,
+  }
+})

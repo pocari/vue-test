@@ -5,6 +5,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+  <link href="./index.css" rel="stylesheet">
 </head>
 <body>
   <div id="app-1">
@@ -56,6 +57,26 @@
       <input v-model="question">
     </p>
     <p>{{ answer }}</p>
+  </div>
+
+  <div id="class-binding1">
+    <p>class-binding1</p>
+    <div
+      class="static"
+      v-bind:class="classObject"
+      ></div>
+  </div>
+
+  <div id="if-test">
+    <p>if test</p>
+    <div v-if="condition">condition is true</div>
+    <div v-else>condition is false</div>
+
+    <!-- index.cssの .fade-enter/leave が効いてる -->
+    <transition name="fade">
+      <div v-show="isShow">isShow is {{ isShow }}</div>
+    </transition>
+
   </div>
 
   <script src="sample.js"></script>
