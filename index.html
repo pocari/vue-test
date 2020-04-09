@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+</head>
+<body>
+  <div id="app-1">
+    {{ message }}
+  </div>
+  <div id="app-2">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+  </div>
+
+  <div id="app-3">
+    <span v-if="seen">seen is true</span>
+    <span v-if="!seen">seen is not true</span>
+  </div>
+
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+
+  <div id="app-5">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">Reverse Messsage</button>
+  </div>
+
+  <div id="app-6">
+    <p>{{message}}</p>
+    <input v-model="message"/>
+  </div>
+
+  <div id="app-7">
+    <ol>
+      <todo-item
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="item.id"
+      />
+    </ol>
+  </div>
+
+  <div id="watch-example">
+    <p>
+      Ask a yes/no question:
+      <input v-model="question">
+    </p>
+    <p>{{ answer }}</p>
+  </div>
+
+  <script src="sample.js"></script>
+</body>
+</html>
