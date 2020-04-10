@@ -8,8 +8,7 @@ var app1 = new Vue({
 var app2 = new Vue({
    el: '#app-2',
    data: {
-     message: 'You loaded this page on ' + new Date()
-   }
+     message: 'You loaded this page on ' + new Date() }
 })
 
 var app3 = new Vue({
@@ -124,4 +123,20 @@ var ifTest = new Vue({
     condition: false,
     isShow: false,
   }
+})
+
+Vue.component('button-counter', {
+  props: [
+    "msg"
+  ],
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button @click="count++">You clicked me attrs: {{ $attrs }} msg: {{ msg }} {{ count }} times.</button>'
+})
+
+var componentTest = new Vue({
+  el: '#components-demo'
 })
