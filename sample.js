@@ -224,3 +224,23 @@ var componentTest3 = new Vue({
     searchText: 'hoge'
   }
 })
+
+Vue.component('navigation-link', {
+  props: {
+    url: String
+  },
+  template: `
+    <a
+      v-bind:href="url"
+      class="nav-link"
+      target="_blank"
+    >
+        <slot></slot>
+    </a>
+  `
+})
+
+var componentTest4 = new Vue({
+  el: '#components-demo4',
+})
+
