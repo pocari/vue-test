@@ -127,16 +127,52 @@ var ifTest = new Vue({
 
 Vue.component('button-counter', {
   props: [
-    "msg"
+    "post"
   ],
   data: function () {
     return {
       count: 0
     }
   },
-  template: '<button @click="count++">You clicked me attrs: {{ $attrs }} msg: {{ msg }} {{ count }} times.</button>'
+  template: `
+    <div>
+      <h3> {{ post.content }}</h3>
+      <button @click="count++">
+        You clicked me {{ count }} times.
+      </button>
+      <button @click="$emit('enlarge-text', 0.1)">
+        Enlarge text
+      </button>
+    </div>
+  `
 })
 
 var componentTest = new Vue({
-  el: '#components-demo'
+  el: '#components-demo',
+  data: {
+      posts: [
+        {
+          id: 1,
+          content: "hello statement1",
+        },
+        {
+          id: 2,
+          content: "hello statement2",
+        },
+        {
+          id: 3,
+          content: "hello statement3",
+        },
+        {
+          id: 4,
+          content: "hello statement4",
+        },
+      ],
+      postFontSize: 1,
+  },
+  methods: {
+      enlargeText: function (delta) {
+        this.postFontSize += delta
+      }
+  }
 })

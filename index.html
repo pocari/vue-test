@@ -80,10 +80,14 @@
   </div>
 
   <div id="components-demo">
-    <button-counter msg="msg111"></button-counter>
-    <button-counter msg="msg222"></button-counter>
-    <button-counter msg="msg333"></button-counter>
-    <button-counter msg="msg444"></button-counter>
+    <div :style="{ fontSize: postFontSize + 'em' }">
+      <button-counter
+        v-for="post in posts"
+        v-bind:key="post.id"
+        v-bind:post="post"
+        v-on:enlarge-text="enlargeText"
+      ></button-counter>
+    </div>
   </div>
 
   <script src="sample.js"></script>
