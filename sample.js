@@ -176,3 +176,25 @@ var componentTest = new Vue({
       }
   }
 })
+
+Vue.component('custom-input', {
+  props: {
+    value: String
+  },
+  template: `
+      <div>
+        <input
+          :value="value"
+          @input="$emit('input', $event.target.value)"
+        >
+        <span>value: {{ value }} </span>
+      </div>
+  `
+})
+
+var componentTest2 = new Vue({
+  el: '#components-demo2',
+  data: {
+    searchText: 'hoge'
+  }
+})
