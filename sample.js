@@ -235,7 +235,7 @@ Vue.component('navigation-link', {
       class="nav-link"
       target="_blank"
     >
-        <slot></slot>
+        <slot>fallback contents</slot>
     </a>
   `
 })
