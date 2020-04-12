@@ -198,3 +198,29 @@ var componentTest2 = new Vue({
     searchText: 'hoge'
   }
 })
+
+Vue.component('my-component', {
+  props: {
+    hoge: String
+  },
+  methods: {
+    myOnClick: function() {
+        this.$emit('update:hoge', 'newValue')
+    }
+  },
+  template: `
+      <div>
+        <button
+          @click="myOnClick"
+        >set new value</button>
+        <span>hoge: {{ hoge }} </span>
+      </div>
+  `
+})
+
+var componentTest3 = new Vue({
+  el: '#components-demo3',
+  data: {
+    searchText: 'hoge'
+  }
+})

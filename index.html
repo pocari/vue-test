@@ -94,6 +94,10 @@
     <custom-input v-model="searchText"></custom-input>
   </div>
 
+  <div id="components-demo3">
+    <my-component v-bind:hoge.sync="searchText"></my-component>
+  </div>
+
   <script src="sample.js"></script>
 </body>
 </html>
